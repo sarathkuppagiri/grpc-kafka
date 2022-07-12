@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package ciam;
+
+option java_package = "com.sarath.ciam";
+option java_multiple_files = true;
+
+
+message ProfileRequest {
+  string custId = 1;
+}
+
+message ProfileResponse {
+  string name = 1;
+  string address = 2;
+}
+
+service CiamService {
+  // server stream
+  rpc migrateUsers(ProfileRequest) returns (stream ProfileResponse);
+}
